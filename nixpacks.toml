@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python311", "pip"]
+
+[phases.install]
+cmds = ["cd hr-ev-tracker-v2 && pip install -r requirements.txt"]
+
+[start]
+cmd = "cd hr-ev-tracker-v2 && gunicorn server:app --bind 0.0.0.0:$PORT --workers 1 --threads 4"
